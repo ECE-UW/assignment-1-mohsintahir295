@@ -6,7 +6,6 @@ import sys
 '''
 def main():
     ### YOUR MAIN CODE GOES HERE
-
     ### sample code to read from stdin.
     ### make sure to remove all spurious print statements as required
     ### by the assignment
@@ -15,7 +14,6 @@ def main():
         if line == '':
             break
         print 'read a line:', line
-
     print 'Finished reading input'
     # return exit code 0 on successful termination
     sys.exit(0)
@@ -203,6 +201,7 @@ def addStreet(cart,TotalStreets,Command,StreetNames):
     streetlist = streetlist.upper()
 
     if(streetlist in StreetNames):
+        print"Error: The street you want to add alreay exists in our database."
         return TotalStreets,StreetNames
     else:
         StreetNames.append(streetlist)
@@ -239,6 +238,7 @@ def changeStreet(cart,TotalStreets,Command,StreetNames):
     
     streetlist = streetlist.upper()
     if(streetlist not in StreetNames):
+        print"Error: The street you want to change doesn't exist on our database."
         return TotalStreets,StreetNames
     else:
         TotalStreets.update({streetlist:Streets})
@@ -547,7 +547,6 @@ def removeStreet(TotalStreets,Command,StreetNames):
         print"Error: The street you want to remove doesn't exist on our database."
         return TotalStreets,StreetNames
     else:
-        print "StreetList is ",streetlist
         StreetNames.remove(streetlist)
         del TotalStreets[streetlist]
         return TotalStreets,StreetNames
@@ -658,3 +657,4 @@ while True:
         if __name__ == '__main__':
             main()
         '''
+
