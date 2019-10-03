@@ -1,7 +1,6 @@
 from __future__ import division
 import re
 import sys
-
 # YOUR CODE GOES HERE
 '''
 def main():
