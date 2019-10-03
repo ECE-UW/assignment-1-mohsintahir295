@@ -1,6 +1,7 @@
 from __future__ import division
 import re
 import sys
+
 # YOUR CODE GOES HERE
 '''
 def main():
@@ -17,7 +18,6 @@ def main():
     # return exit code 0 on successful termination
     sys.exit(0)
 '''
-
 class line():
     
     def __init__(self,a,b,c,d):
@@ -210,8 +210,6 @@ def No_Vertix_Between(V1,IV1,lab_v):
         return 1
     else:
         return 0
-            
-
 
 def vertix_check(v,custom_line1):
     x_max = max(custom_line1.x1,custom_line1.x2)
@@ -472,8 +470,7 @@ def ErrorCheck(Command):
                            output = 1
                            return output
                            break
-                          
-                       
+                         
                        if(i==len(Command)-1 ):
                            print "Error: No coordinates given"
                            error = 1
@@ -626,7 +623,7 @@ def removeStreet(TotalStreets,Command,StreetNames):
                     break
         if (flag2== 1):
             break
-        
+       
     streetlist = streetlist.upper()
     if(streetlist not in StreetNames):
         print"Error: The street you want to remove doesn't exist on our database."
@@ -636,16 +633,19 @@ def removeStreet(TotalStreets,Command,StreetNames):
         del TotalStreets[streetlist]
         return TotalStreets,StreetNames
 def showEdge(EdgeList):
-   
         
     if(len(EdgeList)<1):
-        print "E = { }"
+        print "E = {\n}"
     else:
         print "E = { "
         for i in range(len(EdgeList)):
-            print "<" ,EdgeList[i][0],",",EdgeList[i][1], ">"
+            if(i<len(EdgeList)-1):
+               print"<"+str(EdgeList[i][0])+","+str(EdgeList[i][1])+">,"
+            else:
+               print"<"+str(EdgeList[i][0])+","+str(EdgeList[i][1])+">"
+               
         print"}"
-
+        
 def showDic(new_V):
     dictionary_Vertix = {}
     dictionary_Vertix = dict(new_V)
@@ -658,11 +658,11 @@ def showDic(new_V):
         dictionary_Vertix [key] = x1,y1
  
     if(len(dictionary_Vertix )<1):
-        print "V = { }"
+        print "V = {\n}"
     else:
         print "V = { "
         for key in sorted(dictionary_Vertix) :
-            print key, ":",dictionary_Vertix [key]
+            print str(key)+":"+" "+"("+str(dictionary_Vertix[key][0])+","+str(dictionary_Vertix[key][1])+")"
         print"}"
 
 def run(string):  
@@ -680,7 +680,6 @@ def checknumbers(string):
     else:
         print "Error: Invalid Coordinates"
         return 0
-    
     
 while True:
     V={}
@@ -726,7 +725,6 @@ while True:
                 gPress = 0
                        
             elif(Command[0]=='g'):
-                
                 if(gPress == 0):
                     gPress = 1
                     V={}
@@ -758,7 +756,6 @@ while True:
                     gPress = 1
                     
                 V_Previous = new_V
-
         '''
         if __name__ == '__main__':
             main()
